@@ -10,7 +10,7 @@ import java.util.Scanner;//Importamos en la api de java la clase Scanner
  */
 public class Ejercicio1 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args, boolean SeguridadPrueba) {
        
         //Declaracion de variables
         int a, b, c;
@@ -40,54 +40,31 @@ public class Ejercicio1 {
             case 'A':
             case 'a':
                 
-                System.out.println("Actualizando el sistema...\n"
-                        + "La operación puede durar varios minutos..\n\n"
-                        + "Pulse cualquier tecla para continuar.");
-                
-                sc.next(); //Utilizamos el método next de la clase Scanner para leer por teclado cualquier tecla
-                System.out.println("Fin del programa, adiós.");
-                salir = true;
+                salir = ActualizaSistema(sc);
             break;
                
             case 'C':
             case 'c':
                 
-                System.out.println("Creando copia de seguridad..\n\n"
-                        + "Pulse cualquier tecla para continuar.");
-                sc.next();
-                System.out.println("Fin del programa, adiós.");
-                salir = true;
+                salir = SeguridadPrueba;
             break;
                
             case 'R': 
             case 'r':
                 
-                System.out.println("Restaurando copia de seguridad..\n\n"
-                        + "Pulse cualquier tecla para continuar.");
-                sc.next(); 
-                System.out.println("Fin del programa, adiós.");
-                salir = true;
+                salir = CopiaSeguridadRestaurar(sc);
             break;
                
             case 'B': 
             case 'b':
                 
-                System.out.println("Buscando actualizaciones..\n"
-                        + "Asegúrese de estar conectado a una red wifi. \n"
-                        + "Pulse cualquier tecla para continuar.");
-                sc.next(); 
-                System.out.println("Fin del programa, adiós.");
-                salir = true;
+                salir = BuscarActualizaciones(sc);
             break;
             
             case 'S': 
             case 's':
                 
-                System.out.println("Has elegido salir. \n"
-                        + "Adiós.\n\n"
-                        + "Pulse cualquier tecla para continuar.");
-                sc.next();
-                salir = true;
+                salir = Salir(sc);
             break;
                
             default:
@@ -99,6 +76,58 @@ public class Ejercicio1 {
       } while(salir == false);//Fin while
         
     }//Fin class principal
+
+    private static boolean Salir(Scanner sc) {
+        boolean salir;
+        System.out.println("Has elegido salir. \n"
+                + "Adiós.\n\n"
+                + "Pulse cualquier tecla para continuar.");
+        sc.next();
+        salir = true;
+        return salir;
+    }
+
+    private static boolean BuscarActualizaciones(Scanner sc) {
+        boolean salir;
+        System.out.println("Buscando actualizaciones..\n"
+                + "Asegúrese de estar conectado a una red wifi. \n"
+                + "Pulse cualquier tecla para continuar.");
+        sc.next();
+        System.out.println("Fin del programa, adiós.");
+        salir = true;
+        return salir;
+    }
+
+    private static boolean CopiaSeguridadRestaurar(Scanner sc) {
+        boolean salir;
+        System.out.println("Restaurando copia de seguridad..\n\n"
+                + "Pulse cualquier tecla para continuar.");
+        sc.next();
+        System.out.println("Fin del programa, adiós.");
+        salir = true;
+        return salir;
+    }
+
+    private static boolean CopiaSeguridad(Scanner sc) {
+        boolean salir;
+        System.out.println("Creando copia de seguridad..\n\n"
+                + "Pulse cualquier tecla para continuar.");
+        sc.next();
+        System.out.println("Fin del programa, adiós.");
+        salir = true;
+        return salir;
+    }
+
+    private static boolean ActualizaSistema(Scanner sc) {
+        boolean salir;
+        System.out.println("Actualizando el sistema...\n"
+                + "La operación puede durar varios minutos..\n\n"
+                + "Pulse cualquier tecla para continuar.");
+        sc.next(); //Utilizamos el método next de la clase Scanner para leer por teclado cualquier tecla
+        System.out.println("Fin del programa, adiós.");
+        salir = true;
+        return salir;
+    }
 
     private static void menu() {
         //Utilizamos el bucle por si se introduce cualquier tecla diferente a las opciones dadas

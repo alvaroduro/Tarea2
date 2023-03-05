@@ -4,12 +4,17 @@ package com.AlvaroDuran;
 
 import java.util.Scanner;//Importamos en la api de java la clase Scanner
 
+/**
+ * Clase para el ejercicio 1 de la clase de DAW semi de programación
+ * @author Alvaro Duran <adurama436@g.educaand.es>
+ */
 public class Ejercicio1 {
 
     public static void main(String[] args) {
        
         //Declaracion de variables
-        char eleccion;
+        int a, b, c;
+        char eleccionElegida;
         boolean salir = false; //Creamos e iniciamos una variable para salir del bucle del menu
         
         //Variables auxiliares
@@ -20,26 +25,17 @@ public class Ejercicio1 {
         //Creamos nuestro bucle para volver a elegir o terminar segun la opcion elegida
         
        do {
-            //Utilizamos el bucle por si se introduce cualquier tecla diferente a las opciones dadas
         
-        //Entrada de datos
-        
-        System.out.println("~~~~~~~~~~~~~~|MENÚ PRINCIPAL|~~~~~~~~~~~~~~~~~~~~~~~~\n"
-                + "| A - Actualizar el sistema.                          |\n"
-                + "| C - Crear copia de seguridad.                       |\n"
-                + "| R - Restaurar copia de seguridad.                   |\n"
-                + "| B - Buscar actualizaciones.                         |\n"
-                + "| S - Salir del programa.                             |\n"
-                + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            menu();
         
         //Pedimos al usuario introduzca un caracter
         System.out.println("Introduzca una letra del menú.");
-        eleccion = sc.next().charAt(0);//Lee el primer caracter del string introducido por teclado        
+        eleccionElegida = sc.next().charAt(0);//Lee el primer caracter del string introducido por teclado        
         
                 //Proceso del programa
         
         //Utilizamos la estructura switch para el programa debido a la elección de opciones
-        switch(eleccion) {
+        switch(eleccionElegida) {
             
             case 'A':
             case 'a':
@@ -103,5 +99,19 @@ public class Ejercicio1 {
       } while(salir == false);//Fin while
         
     }//Fin class principal
+
+    private static void menu() {
+        //Utilizamos el bucle por si se introduce cualquier tecla diferente a las opciones dadas
+        
+        //Entrada de datos
+        
+        System.out.println("~~~~~~~~~~~~~~|MENÚ PRINCIPAL|~~~~~~~~~~~~~~~~~~~~~~~~\n"
+                + "| A - Actualizar el sistema.                          |\n"
+                + "| C - Crear copia de seguridad.                       |\n"
+                + "| R - Restaurar copia de seguridad.                   |\n"
+                + "| B - Buscar actualizaciones.                         |\n"
+                + "| S - Salir del programa.                             |\n"
+                + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    }
     
 }//Fin class Ejercicio1
